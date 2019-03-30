@@ -147,7 +147,7 @@ const App = () => {
     }
 
     p.setup = async () => {
-      await fetchVerses(p)
+      fetchVerses(p)
       p.createCanvas(width, height)
       p.background(230)
       p.textAlign(p.CENTER, p.CENTER)
@@ -156,28 +156,28 @@ const App = () => {
     }
 
     p.draw = () => {
-      if(!p.verses || !p.mountains){
-        return;
-      }
       p.background(230)
     
-      value += speed
-      let fade = ((p.sin(p.radians(value))+1)/2)*MAX
-      p.fill(0, fade)    
-      p.textSize(40)
-      p.textFont(font)
-      p.text(p.verses.content, width / 2, height / 3)
-      let nextContentHeight = 50
-      const { matchTags } = p.verses
-      if(matchTags) {
-        p.textSize(15)
-        p.text(matchTags, width / 2, height / 3 + nextContentHeight)
-        nextContentHeight += 50
+      if(p.verses){
+        value += speed
+        let fade = ((p.sin(p.radians(value))+1)/2)*MAX
+        p.fill(0, fade)    
+        p.textFont(font)
+        p.textSize(40)
+        p.text(p.verses.content, width / 2, height / 3)
+        let nextContentHeight = 50
+        const { matchTags } = p.verses
+        if(matchTags) {
+          p.textSize(15)
+          p.text(matchTags, width / 2, height / 3 + nextContentHeight)
+          nextContentHeight += 50
+        }
+        p.textSize(20)
+        p.text(`${p.verses.author} 《${p.verses.title}》`, width / 2, (height / 3) + nextContentHeight)
       }
-      p.textSize(20)
-      p.text(`${p.verses.author} 《${p.verses.title}》`, width / 2, (height / 3) + nextContentHeight)
-      
-      p.mountains.forEach(m => m.display(p))
+      if(p.mountains){
+        p.mountains.forEach(m => m.display(p))
+      }
     }
 
     p.mouseClicked = (e) => {

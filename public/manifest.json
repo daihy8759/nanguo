@@ -17,18 +17,10 @@
 	"chrome_url_overrides" : {
 		"newtab": "index.html"
 	},
-	"icons": [{
-		"src": "icons/16.png",
-		"sizes": "16x16",
-		"type": "image/png"
-	  },{
-		"src": "icons/48.png",
-		"sizes": "48x48",
-		"type": "image/png"
-	},{
-		"src": "icons/128.png",
-		"sizes": "128x128",
-		"type": "image/png"
-	}],
+	"icons": {
+		"16": "icons/16.png",
+		"32": "icons/48.png",
+		"128":"icons/128.png"
+	},
 	"manifest_version": 2
 }
