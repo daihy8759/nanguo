@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import p5 from 'p5';
 import Mountain from '../utils/mountain';
+import { load } from 'jinrishici';
 import './App.css';
+
+const loadAsync = (...args) =>
+new Promise((resolve) => {
+  load(...args.concat((result) => {
+    resolve(result);
+  }));
+});
 
 const colors = [
   {
@@ -107,9 +115,16 @@ const App = () => {
   }, [])
 
   const fetchVerses = async (p) => {
-    let res = await fetch('https://api.gushi.ci/all.json')
-    let verses = await res.json()
-    p.verses = verses
+    let res = await loadAsync()
+    let { content, matchTags, origin } = res.data
+    p.verses = {
+      author: origin.author,
+      title: origin.title,
+      translate: origin.translate,
+      matchTags,
+      content
+    }
+    p.redraw()
   }
 
   const growMountains = (p) => {
@@ -141,7 +156,7 @@ const App = () => {
     }
 
     p.draw = () => {
-      if(!p.verses){
+      if(!p.verses || !p.mountains){
         return;
       }
       p.background(230)
@@ -152,8 +167,15 @@ const App = () => {
       p.textSize(40)
       p.textFont(font)
       p.text(p.verses.content, width / 2, height / 3)
+      let nextContentHeight = 50
+      const { matchTags } = p.verses
+      if(matchTags) {
+        p.textSize(15)
+        p.text(matchTags, width / 2, height / 3 + nextContentHeight)
+        nextContentHeight += 50
+      }
       p.textSize(20)
-      p.text(`${p.verses.author} 《${p.verses.origin}》`, width / 2, (height / 3) + 50)
+      p.text(`${p.verses.author} 《${p.verses.title}》`, width / 2, (height / 3) + nextContentHeight)
       
       p.mountains.forEach(m => m.display(p))
     }
