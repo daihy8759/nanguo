@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# nanguo
 
-## Available Scripts
+支持自定义新标签页的 Chrome 扩展，将在新标签页上展示中国传统色的层叠波浪动画效果搭配经典诗词,并播放🌧️声和🎹声。
 
-In the project directory, you can run:
+A Chrome extension with custom new tab page featuring Chinese poems and P5.js enabled noise waves in Chinese traditional colors
 
-### `npm start`
+[几枝 | Jizhi](https://github.com/unicar9/jizhi) 的React实现
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 本地装载
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* 生成build文件
+```bash
+    git clone https://github.com/nanguo
+    yarn build
+```
+* 在浏览器里输入 chrome://extensions/ 进入插件管理页面
+* 打开右上角开发者模式（Developer mode）
+* 点击左上角 "Load unpacked" 按钮并选取build目录
+* 装载成功，打开新标签页试试吧
 
-### `npm test`
+## 功能
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* 左侧淡出中国色名称。
+* 右下播放键为动效开关。
+* 右下下载键储存 JPEG 格式背景图到本地。
 
-### `npm run build`
+## 鸣谢
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* 动画实现均来自(我连readme都是拷贝的🤪)[几枝 | Jizhi](https://github.com/unicar9/jizhi)
+* 诗词名句调用使用[古诗词·一言API](https://gushi.ci/)。
+* 播放雨声和钢琴声来自v友[链接](https://www.v2ex.com/t/549569#reply187)
+* 使用的字体为方正楷体
