@@ -24,6 +24,11 @@ A Chrome extension with custom new tab page featuring Chinese poems and P5.js en
 * 右下播放键为动效开关。
 * 右下下载键储存 JPEG 格式背景图到本地。
 
+
+## 示例
+
+![bg 1](https://github.com/daihy8759/nanguo/blob/master/examples/Snipaste_2019-03-30_10-15-35.png)
+
 ## 鸣谢
 
 * 动画实现均来自(我连readme都是拷贝的🤪)[几枝 | Jizhi](https://github.com/unicar9/jizhi)
