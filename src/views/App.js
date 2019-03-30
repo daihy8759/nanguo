@@ -65,6 +65,9 @@ const colors = [
       hexcode: '#de3f7c'
   }
 ]
+let speed = 1.; 
+let value = 0.0;
+let MAX = 255;
 
 const useWindowSize = (initialWidth = Infinity, initialHeight = Infinity) => {
   const [state, setState] = useState({
@@ -143,7 +146,9 @@ const App = () => {
       }
       p.background(230)
     
-      p.fill(0)
+      value += speed
+      let fade = ((p.sin(p.radians(value))+1)/2)*MAX
+      p.fill(0, fade)    
       p.textSize(40)
       p.textFont(font)
       p.text(p.verses.content, width / 2, height / 3)
