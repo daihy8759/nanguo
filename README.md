@@ -10,7 +10,7 @@ A Chrome extension with custom new tab page featuring Chinese poems and P5.js en
 
 * 生成build文件
 ```bash
-    git clone https://github.com/nanguo
+    git clone https://github.com/daihy8759/nanguo
     yarn build
 ```
 * 在浏览器里输入 chrome://extensions/ 进入插件管理页面
