@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 import p5 from 'p5';
 import Mountain from '../utils/mountain';
 import { load } from 'jinrishici';
@@ -102,6 +103,11 @@ const App = () => {
   const [ loop, setLoop ] = useState(false);
   const [ p5Instance, setP5Instance ] = useState();
   const [ colorSelect, setColorSelect ] = useState();
+  const [ settingVisible, setSettingVisible] = useState(false);
+  const [form, setFormValues] = useState({
+    rain: '',
+    piano: ''
+  });
   let font;
   const playerRain = React.createRef();
   const playerMusic = React.createRef();
@@ -109,10 +115,24 @@ const App = () => {
 
   useEffect(() => {
     let canvasInstance = new p5(sketch, wrapperRef.current)
+    loadConfigFromStore();
     return () => {
       canvasInstance.remove()
     }
   }, [])
+
+  const loadConfigFromStore = () => {
+    Object.keys(form).forEach((key) => {
+      form[key] = localStorage.getItem(key);
+    })
+  }
+
+  const updateField = e => {
+    setFormValues({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const fetchVerses = async (p) => {
     let res = await loadAsync()
@@ -181,7 +201,9 @@ const App = () => {
     }
 
     p.mouseClicked = (e) => {
-      fetchVerses(p)
+      if(e.target.tagName === "CANVAS") {
+        fetchVerses(p)
+      }
     }
   }
 
@@ -195,7 +217,9 @@ const App = () => {
           if(p5Instance){
             if(toggleState) {
               p5Instance.loop()
+              playerRain.current.load()
               playerRain.current.play()
+              playerMusic.current.load()
               playerMusic.current.play()
             } else {
               p5Instance.noLoop()
@@ -203,24 +227,67 @@ const App = () => {
               playerMusic.current.pause()
             }
           }
-          e.stopPropagation()
         }}></span>
         <span className="icon-download3" onClick={(e) => {
           if(p5Instance){
-            p5Instance.saveCanvas(p5Instance.canvas, p5Instance.verses.origin, 'jpg')
+            p5Instance.saveCanvas(p5Instance.canvas, p5Instance.verses.title, 'jpg')
           }
-          e.stopPropagation()
+        }}></span>
+        <span className="icon-cog" onClick={() => {
+          setSettingVisible(true)
         }}></span>
       </div>
       <audio ref={playerRain} loop="loop" autoPlay={loop}>
-          <source src="http://qianjires.xxoojoke.com/therain.m4a" type="audio/mp4"/>
+          <source src={form.rain} type="audio/mp4"/>
           浏览器暂不支持此功能.
       </audio>
       <audio ref={playerMusic} loop="loop" autoPlay={loop}>
-          <source src="http://qianjires.xxoojoke.com/In_Autumn_the_Leaves_Came_to_Our_House.mp3" type="audio/mp3" />
+          <source src={form.piano} type="audio/mp3" />
           浏览器暂不支持此功能.
       </audio>
       <div ref={wrapperRef} />
+      <div className={classNames('flavr-container modal center', { shown: settingVisible })}>
+        <div className="flavr-overlay"></div>
+        <div className="flavr-fixer">
+          <div className="flavr-outer">
+            <div className="flavr-content">
+              <div className="flavr-message">
+                <form className="flavr-form">
+                  <div className="form-row">
+                    <label>雨声：</label>
+                    <input 
+                      className="input" 
+                      value={form.rain}
+                      name="rain"
+                      onChange={updateField} />
+                  </div>
+                  <div className="form-row">
+                    <label>钢琴声：</label>
+                    <input 
+                      className="input" 
+                      value={form.piano}
+                      name="piano"
+                      onChange={updateField} />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="flavr-toolbar inline">
+              <button className="flavr-button danger" onClick={() => {
+                Object.keys(form).forEach((key) => {
+                  if(form[key]){
+                    localStorage.setItem(key, form[key]);
+                  }
+                })
+                setSettingVisible(false)
+              }}>确认</button>
+              <button className="flavr-button default" onClick={() => {
+                setSettingVisible(false)
+              }}>取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
