@@ -1,424 +1,437 @@
+/** @format */
+
 html,
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 15px;
-    color: #c55e5e;
-}
-
-.container span {
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid #c55e5e;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    text-align: center;
-    line-height: 15px;
-    cursor: pointer;
-    opacity: .7;
-    transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 2.55);
-}
-
-.container span:hover {
-    transform: scale(1.2);
-    opacity: 1
-}
-
-.colorName {
-    font-family: "OperatorMono";
-    position: absolute;
-    font-size: 18em;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    writing-mode: vertical-rl;
-    white-space: nowrap;
-    transform: translate(-25%, -10%);
-    animation: fadeOut 5s ease;
-}
-
-@keyframes fadeOut {
-	0% { opacity: .1; }
-	50% { opacity: .1; }
-	100% { opacity: 0; }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 @font-face {
-    font-family: 'icomoon';
-    src: url('../assets/fonts/icomoon.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'fzkt';
+  src: url('../assets/fonts/方正楷体.TTF') format('truetype');
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
-    font-family: 'icomoon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+.container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 15px;
+  color: #c55e5e;
+  z-index: 100;
+}
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.container span {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #c55e5e;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  text-align: center;
+  line-height: 15px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 2.55);
+}
+
+.container span:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('../assets/fonts/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-play:before {
-    content: "\e900";
+  content: '\e900';
 }
 
 .icon-cog:before {
-    content: "\e994";
+  content: '\e994';
 }
 
 .icon-download3:before {
-    content: "\e9c7";
+  content: '\e9c7';
 }
 
 .icon-pause2:before {
-    content: "\ea1d";
+  content: '\ea1d';
 }
 
 .flavr-container {
-    position: fixed;
-    text-align: center;
-    visibility: visible;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    pointer-events: none;
-    display: none;
-    z-index: 999;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0)
+  position: fixed;
+  text-align: center;
+  visibility: visible;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: none;
+  z-index: 999;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
-.flavr-container *,.flavr-container *:before,.flavr-container *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box
+.flavr-container *,
+.flavr-container *:before,
+.flavr-container *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.flavr-container .cleafix:after,.flavr-container.clearfix:after {
-    content: " ";
-    display: table;
-    clear: both
+.flavr-container .cleafix:after,
+.flavr-container.clearfix:after {
+  content: ' ';
+  display: table;
+  clear: both;
 }
 
 .flavr-container.modal {
-    pointer-events: auto
+  pointer-events: auto;
 }
 
 .flavr-container.shown {
-    display: block
+  display: block;
 }
 
 .flavr-container.top-mid .flavr-fixer {
-    margin: 0
+  margin: 0;
 }
 
 .flavr-container.top-left .flavr-fixer {
-    position: fixed;
-    margin: 0;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
 }
 
 .flavr-container.top-right .flavr-fixer {
-    position: fixed;
-    margin: 0;
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: auto
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
 }
 
 .flavr-container.bottom-left .flavr-fixer {
-    position: fixed;
-    margin: 0;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 0
+  position: fixed;
+  margin: 0;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
 }
 
 .flavr-container.bottom-right .flavr-fixer {
-    position: fixed;
-    margin: 0;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: auto
+  position: fixed;
+  margin: 0;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
 }
 
 .flavr-container.bottom-mid .flavr-fixer {
-    position: fixed;
-    margin: 0;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 50%;
-    text-align: left
+  position: fixed;
+  margin: 0;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  text-align: left;
 }
 
 .flavr-container.bottom-mid .flavr-fixer .flavr-outer {
-    margin-left: -50%;
-    width: 100%
+  margin-left: -50%;
+  width: 100%;
 }
 
 .flavr-container.fullscreen .flavr-fixer {
-    margin-top: 0
+  margin-top: 0;
 }
 
 .flavr-container .flavr-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    visibility: inherit;
-    background: rgba(0,0,0,.4)
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: inherit;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .flavr-container .flavr-fixer {
-    position: relative;
-    margin: 12% auto 0;
-    display: inline-block;
-    width: auto;
-    pointer-events: auto;
-    -webkit-transition: margin .3s;
-    -moz-transition: margin .3s;
-    -o-transition: margin .3s;
-    transition: margin .3s
+  position: relative;
+  margin: 12% auto 0;
+  display: inline-block;
+  width: auto;
+  pointer-events: auto;
+  -webkit-transition: margin 0.3s;
+  -moz-transition: margin 0.3s;
+  -o-transition: margin 0.3s;
+  transition: margin 0.3s;
 }
 
 .flavr-container .flavr-fixer .flavr-outer {
-    background: #2e3846;
-    min-width: 300px;
-    height: auto;
-    text-align: center;
-    font-family: Helvetica,Arial,sans-serif;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
-    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3)
+  background: #2e3846;
+  min-width: 300px;
+  height: auto;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-content {
-    font-size: 14px;
-    color: #fff;
-    padding: 20px 30px 8px
+  font-size: 14px;
+  color: #fff;
+  padding: 20px 30px 8px;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form .form-row {
-    text-align: left;
-    margin-top: 8px
+  text-align: left;
+  margin-top: 8px;
 }
 
 .form-row {
-    text-align: center;
+  text-align: center;
 }
 
 .form-row input {
-    display: inline-block;
-    width: 200px;
-    border: 0;
-    padding: 8px 6px 7px 15px;
-    background-color: #f6f6f6;
-    outline: 0;
-    height: 35px;
-    vertical-align: middle;
+  display: inline-block;
+  width: 200px;
+  border: 0;
+  padding: 8px 6px 7px 15px;
+  background-color: #f6f6f6;
+  outline: 0;
+  height: 35px;
+  vertical-align: middle;
 }
 
 .form-row label {
-    display: inline-block;
-    width: 55px;
-    text-align: right;
-    height: 35px;
-    line-height: 35px;
-    vertical-align: middle;
+  display: inline-block;
+  width: 55px;
+  text-align: right;
+  height: 35px;
+  line-height: 35px;
+  vertical-align: middle;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=checkbox],.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=radio] {
-    display: inline;
-    margin-left: 12px;
-    background-color: transparent;
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='checkbox'],
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='radio'] {
+  display: inline;
+  margin-left: 12px;
+  background-color: transparent;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=checkbox]:first-child,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=radio]:first-child {
-    margin-left: 0
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='checkbox']:first-child,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='radio']:first-child {
+  margin-left: 0;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form select {
-    display: block;
-    background-color: #f6f6f6;
-    height: 36px;
-    width: 100%;
-    border: 0;
-    outline: 0;
-    color: #666;
-    padding: 6px 6px 7px 15px
+  display: block;
+  background-color: #f6f6f6;
+  height: 36px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #666;
+  padding: 6px 6px 7px 15px;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form label {
-    font-size: .9em
+  font-size: 0.9em;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=button],.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=submit],.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=reset],.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn {
-    display: block;
-    outline: 0;
-    text-decoration: none;
-    padding: 8px 12px;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.428571429;
-    color: #fff;
-    background-color: #795aac;
-    text-align: center;
-    white-space: nowrap;
-    cursor: pointer;
-    background-image: none;
-    border: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all ease .3s;
-    -moz-transition: all ease .3s;
-    -o-transition: all ease .3s;
-    transition: all ease .3s
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='button'],
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='submit'],
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='reset'],
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn {
+  display: block;
+  outline: 0;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.428571429;
+  color: #fff;
+  background-color: #795aac;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  background-image: none;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button:focus,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=button]:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=button]:focus,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=submit]:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=submit]:focus,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=reset]:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type=reset]:focus,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn:focus {
-    outline: 0;
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form button:focus,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='button']:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='button']:focus,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='submit']:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='submit']:focus,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='reset']:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form input[type='reset']:focus,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message form a.btn:focus {
+  outline: 0;
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button {
-    outline: 0;
-    display: block;
-    text-decoration: none!important;
-    padding: 7px 12px;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.428571429;
-    color: #fff;
-    background-color: #795aac;
-    text-align: center;
-    white-space: nowrap;
-    cursor: pointer;
-    background-image: none;
-    border: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all ease .3s;
-    -moz-transition: all ease .3s;
-    -o-transition: all ease .3s;
-    transition: all ease .3s
+  outline: 0;
+  display: block;
+  text-decoration: none !important;
+  padding: 7px 12px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.428571429;
+  color: #fff;
+  background-color: #795aac;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  background-image: none;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button:focus {
-    outline: 0;
-    background-color: #3e4b5d;
-    color: #fff
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button:focus {
+  outline: 0;
+  background-color: #3e4b5d;
+  color: #fff;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary {
-    background-color: #2980b9
+  background-color: #2980b9;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:focus {
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:focus {
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.success {
-    background-color: #27ae60
+  background-color: #27ae60;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.success:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.success:focus {
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.success:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.success:focus {
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.info {
-    background-color: #1fb5ad
+  background-color: #1fb5ad;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.info:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.info:focus {
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.info:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.info:focus {
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.warning {
-    background-color: #f39c12
+  background-color: #f39c12;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.warning:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.warning:focus {
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.warning:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.warning:focus {
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.danger {
-    background-color: #f44a56
+  background-color: #f44a56;
 }
 
-.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.danger:hover,.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.danger:focus {
-    background-color: #3e4b5d
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.danger:hover,
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.danger:focus {
+  background-color: #3e4b5d;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar.inline .flavr-button {
-    display: inline-block;
-    width: auto;
-    min-width: 120px;
-    margin-left: 6px;
-    margin-top: 2px
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
+  margin-left: 6px;
+  margin-top: 2px;
 }
 
 .flavr-container .flavr-fixer .flavr-outer .flavr-toolbar.inline .flavr-button:first-child {
-    margin-left: 0
+  margin-left: 0;
 }
 
 .flavr-toolbar {
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 }

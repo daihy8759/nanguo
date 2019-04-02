@@ -6,26 +6,32 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "jinrishici": "^1.0.6",
-    "p5": "^0.7.3",
+    "konva": "^3.2.3",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-konva": "^16.8.6",
+    "react-scripts": "2.1.8",
+    "react-spring": "^8.0.19"
   },
   "scripts": {
     "start": "react-scripts start",
     "build:background": "cp src/background.js build/static/js/background.js",
     "build": "react-scripts build && npm run build:background"
   },
-  "eslintConfig": {
-    "extends": "react-app",
-    "globals": {
-      "chrome": true
-    }
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
+  }
 }
